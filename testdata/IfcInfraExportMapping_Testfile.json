@@ -1,0 +1,200 @@
+{
+  "MapBlockName": [
+    {
+      "Name": "\\*Model_Space",
+      "IfcExportAs": "IfcBuiltElement",
+      "Export": true
+    },
+    {
+      "Name": "\\*Paper_Space",
+      "IfcExportAs": "IfcBuiltElement",
+      "Export": true
+    },
+    {
+      "Name": "\\*Paper_Space0",
+      "IfcExportAs": "IfcBuiltElement",
+      "Export": true
+    }
+  ],
+  "MapCADLayerName": [
+    {
+      "Name": "0",
+      "IfcExportAs": "",
+      "Export": true
+    },
+	{
+      "Name": "DO_1",
+      "IfcExportAs": "",
+      "Export": true
+    },
+	{
+      "Name": "DO_2",
+      "IfcExportAs": "",
+      "Export": false
+    },
+	{
+      "Name": "DO_4",
+      "IfcExportAs": "ifcDonatschPartner",
+      "Export": false
+    },
+	{
+      "Name": "DO_5",
+      "IfcExportAs": "ifcLandquart",
+      "Export": true
+    },
+	{
+      "Name": "DO_6",
+      "IfcExportAs": "ifcLandquart",
+      "Export": false
+    },
+	{
+      "Name": "DO_7",
+      "IfcExportAs": "ifcPoschiavo",
+      "Export": true
+    }
+  ],
+  "MapAlignmentStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcAlignment",
+      "Export": true
+    }
+  ],
+  "MapAssemblyStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "",
+      "Export": true
+    }
+  ],
+  "MapCorridorStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "",
+      "Export": true
+    }
+  ],
+  "MapFeatureLineStyleName": [
+    {
+      "Name": "Bahnsteigkante",
+      "IfcExportAs": "IfcAnnotation",
+      "Export": true
+    },
+    {
+      "Name": "Mittlere\\ Gleislinie",
+      "IfcExportAs": "IfcAnnotation",
+      "Export": true
+    },
+    {
+      "Name": "Obere\\ Gleislinie",
+      "IfcExportAs": "IfcAnnotation",
+      "Export": true
+    },
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcAnnotation",
+      "Export": true
+    }
+  ],
+  "MapLinkStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "",
+      "Export": true
+    }
+  ],
+  "MapPipeStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcPipeSegment",
+      "Export": true
+    }
+  ],
+  "MapPointStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcAnnotation",
+      "Export": true
+    }
+  ],
+  "MapPressureAppurtenanceStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcDistributionFlowElement",
+      "Export": true
+    }
+  ],
+  "MapPressureFittingStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcPipeFitting",
+      "Export": true
+    }
+  ],
+  "MapPressurePipeStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcPipeSegment",
+      "Export": true
+    }
+  ],
+  "MapProfileStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcAlignmentVertical",
+      "Export": true
+    }
+  ],
+  "MapShapeStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "",
+      "Export": true
+    }
+  ],
+  "MapStructureStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcDistributionChamberElement",
+      "Export": true
+    }
+  ],
+  "MapSurfaceStyleName": [
+    {
+      "Name": "Standard",
+      "IfcExportAs": "IfcGeographicElement.TERRAIN",
+      "Export": true
+    }
+  ],
+  "MapSubassemblyName": [],
+  "MapShapeCode": [],
+  "MapLinkCode": [],
+  "MapPointCode": [],
+  "MapFolderName": [
+    {
+      "Name": "Centerline\\ Alignments",
+      "IfcExportAs": "",
+      "Export": true
+    },
+    {
+      "Name": "Curb\\ Return\\ Alignments",
+      "IfcExportAs": "",
+      "Export": true
+    },
+    {
+      "Name": "Rail\\ Alignments",
+      "IfcExportAs": "",
+      "Export": true
+    },
+    {
+      "Name": "Offset\\ Alignments",
+      "IfcExportAs": "",
+      "Export": true
+    },
+    {
+      "Name": "Miscellaneous\\ Alignments",
+      "IfcExportAs": "",
+      "Export": true
+    }
+  ]
+}

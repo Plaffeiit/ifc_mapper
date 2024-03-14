@@ -1,0 +1,71 @@
+{
+    "MapBlockName": [
+        {
+            "Name": "\\*Model_Space",
+            "IfcExportAs": "IfcBuiltElement",
+            "Export": true
+        },
+        {
+            "Name": "\\*Paper_Space",
+            "IfcExportAs": "IfcBuiltElement",
+            "Export": true
+        },
+        {
+            "Name": "\\*Paper_Space0",
+            "IfcExportAs": "IfcBuiltElement",
+            "Export": true
+        }
+    ],
+    "MapCADLayerName": [
+        {
+            "Name": "0",
+            "IfcExportAs": "",
+            "Export": true
+        },
+        {
+            "Name": "DO_01",
+            "IfcExportAs": "",
+            "Export": true
+        },
+        {
+            "Name": "DO_02",
+            "IfcExportAs": "",
+            "Export": false
+        },
+        {
+            "Name": "DO_03",
+            "IfcExportAs": "ifcDonatschPartner",
+            "Export": true
+        },
+        {
+            "Name": "DO_04",
+            "IfcExportAs": "ifcDonatschPartner",
+            "Export": false
+        },
+        {
+            "Name": "DO_11",
+            "IfcExportAs": "ifcLandquart",
+            "Export": true
+        },
+        {
+            "Name": "DO_12",
+            "IfcExportAs": "ifcLandquart",
+            "Export": false
+        },
+        {
+            "Name": "DO_21",
+            "IfcExportAs": "ifcPoschiavo",
+            "Export": true
+        },
+        {
+            "Name": "DO_22",
+            "IfcExportAs": "ifcPoschiavo",
+            "Export": false
+        },
+        {
+            "Name": "DO_42",
+            "IfcExportAs": "",
+            "Export": false
+        }
+    ]
+}
