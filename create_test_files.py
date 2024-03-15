@@ -76,14 +76,13 @@ with open(pfad_zu_vorlage, "w", encoding="utf-8") as datei_a, open(
 
 pfad_zu_vorlage, pfad_zu_projekt
 
-# Kopiere IfcInfraExportMapping.json ind Hauptverzeichnis
+# Kopiere IfcInfraExportMapping.json
 shutil.copyfile(
     "./testdata/IfcInfraExportMapping_Testfile.json",
     "./testdata/IfcInfraExportMapping.json",
 )
 
 print("Erledigt.")
-# Erledigt.
 
 """
 Test-Output v20240311
