@@ -16,5 +16,8 @@ Die Dateipfade werden bei Programmstart aus der Datei `ifcMapper.ini` eingelesen
 
 ## Versionshinweise
 
-2024-03-15
+2024-03-16
+- Erste funktionierende Version
+
+2024-03-01
 - Work in progress…
