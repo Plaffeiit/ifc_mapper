@@ -3,38 +3,6 @@ import json
 DEBUG = False
 
 
-if DEBUG:
-    mapping_categories = (
-        "MapBlockName",
-        "MapCADLayerName",
-    )
-
-else:
-    mapping_categories = (
-        "MapBlockName",
-        "MapCADLayerName",
-        "MapAlignmentStyleName",
-        "MapAssemblyStyleName",
-        "MapCorridorStyleName",
-        "MapFeatureLineStyleName",
-        "MapLinkStyleName",
-        "MapPipeStyleName",
-        "MapPointStyleName",
-        "MapPressureAppurtenanceStyleName",
-        "MapPressureFittingStyleName",
-        "MapPressurePipeStyleName",
-        "MapProfileStyleName",
-        "MapShapeStyleName",
-        "MapStructureStyleName",
-        "MapSurfaceStyleName",
-        "MapSubassemblyName",
-        "MapShapeCode",
-        "MapLinkCode",
-        "MapPointCode",
-        "MapFolderName",
-    )
-
-
 def dp(text: str = "Donatsch + Partner AG", space: int = 1) -> str:
     """Return a white string with a green background."""
     _color = "\033[37m\033[42m"
@@ -55,19 +23,23 @@ def save_json_file(path: str, data: dict) -> None:
         json.dump(data, datei, ensure_ascii=False, indent=4)
 
 
-def mapping(file: dict, template: dict, categories: list) -> None:
+def mapping(file: dict, template: dict, categories: list) -> str:
     """Map the entries from the template to the project file."""
+    output_str = ""
     try:
         for category in categories:
-            print(f"{category}")
             name_list_template = []  # list of names in template
             for entry in template[category]:
                 name_list_template.append(entry["Name"])
 
+            output_str += f"{category}\n"
+
             # check if entry is in project file but not in template
             for entry in file[category]:
                 if DEBUG:
-                    print(f'{entry["Name"]}, {entry["IfcExportAs"]}, {entry["Export"]}')
+                    output_str += (
+                        f'{entry["Name"]}, {entry["IfcExportAs"]}, {entry["Export"]}\n'
+                    )
 
                 if entry["Name"] in name_list_template:
                     template_entry = next(
@@ -78,11 +50,13 @@ def mapping(file: dict, template: dict, categories: list) -> None:
                         entry["IfcExportAs"] = template_entry["IfcExportAs"]
                         entry["Export"] = template_entry["Export"]
 
-                    print(f"..\"{entry['Name']}\" wurde abgeglichen")
+                    output_str += f"..\"{entry['Name']}\" wurde abgeglichen\n"
                 else:
-                    print(f"..\"{entry['Name']}\" bleibt unverändert")
+                    output_str += f"..\"{entry['Name']}\" bleibt unverändert\n"
                 if DEBUG:
-                    print(f'{entry["Name"]}, {entry["IfcExportAs"]}, {entry["Export"]}')
+                    output_str += (
+                        f'{entry["Name"]}, {entry["IfcExportAs"]}, {entry["Export"]}\n'
+                    )
 
             name_list_project = []  # list of names in project file
             for entry in file[category]:
@@ -94,23 +68,57 @@ def mapping(file: dict, template: dict, categories: list) -> None:
                     file[category].append(
                         {"Name": name, "IfcExportAs": "", "Export": True}
                     )
-
-                    print(f'.."{name}" neu hinzugefügt')
+                    output_str += f'.."{name}" neu hinzugefügt\n'
 
             # ToDo: sort all entries alphabetically
 
     except KeyError as e:
-        print(f"KeyError: {e} nicht gefunden")
+        output_str += f"KEY_ERROR: {e} nicht gefunden!\nMapping abgebrochen . . .\n"
+
+    return output_str[:-1]
 
 
 if __name__ == "__main__":
+    DEBUG = False
+
+    if DEBUG:
+        mapping_categories = (
+            "MapBlockName",
+            "MapCADLayerName",
+        )
+
+    else:
+        mapping_categories = (
+            "MapBlockName",
+            "MapCADLayerName",
+            "MapAlignmentStyleName",
+            "MapAssemblyStyleName",
+            "MapCorridorStyleName",
+            "MapFeatureLineStyleName",
+            "MapLinkStyleName",
+            "MapPipeStyleName",
+            "MapPointStyleName",
+            "MapPressureAppurtenanceStyleName",
+            "MapPressureFittingStyleName",
+            "MapPressurePipeStyleName",
+            "MapProfileStyleName",
+            "MapShapeStyleName",
+            "MapStructureStyleName",
+            "MapSurfaceStyleName",
+            "MapSubassemblyName",
+            "MapShapeCode",
+            "MapLinkCode",
+            "MapPointCode",
+            "MapFolderName",
+        )
+
     # paths
     path_template = "./testdata/IfcInfraExportMapping_Template.json"
-    path_project = "IfcInfraExportMapping.json"
+    path_project = "./testdata/IfcInfraExportMapping.json"
 
     if DEBUG:
         path_template = "./testdata/datei_template.json"
-        path_project = "./datei_project.json"
+        path_project = "./testdata/datei_project.json"
 
     # intro
     print(dp())
@@ -121,10 +129,28 @@ if __name__ == "__main__":
     project_file = open_json_file(path_project)
 
     # 2) map files
-    mapping(project_file, template, mapping_categories)
+    log_str = mapping(project_file, template, mapping_categories)
+    print(log_str)
 
     # 3) save project file
     save_json_file(path_project, project_file)
 
     # outro
     print("Erledigt.")
+
+"""
+Debug output:
+
+[…]
+MapCADLayerName
+.."0" wurde abgeglichen
+.."DO_1" wurde abgeglichen
+.."DO_2" wurde abgeglichen
+.."DO_4" wurde abgeglichen
+.."DO_5" bleibt unverändert
+.."DO_6" wurde abgeglichen
+.."DO_7" wurde abgeglichen
+.."DO_3" neu hinzugefügt
+.."DO_8" neu hinzugefügt
+[…]
+"""
