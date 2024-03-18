@@ -12,9 +12,12 @@ A script with Tkinter interface that matches the file `IfcInfraExportMapping.jso
 
 ### Voreinstellungen
 
-Die Dateipfade werden bei Programmstart aus der Datei `ifcMapper.ini` eingelesen. Grundsätzlich sollte die Datei aber nur nach Rücksprache mit ChMe angepasst werden.
+Die Dateipfade und weitere Informtionen werden bei Programmstart aus der Datei `ifcMapper.ini` eingelesen. Grundsätzlich sollte diese Datei nur nach Rücksprache mit ChMe angepasst werden.
 
 ## Versionshinweise
+
+2024-03-18
+- Detailverbesserungen, Testen auf Anwender-PC
 
 2024-03-16
 - Erste funktionierende Version

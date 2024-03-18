@@ -16,7 +16,8 @@ class IfcMapper_GUI:
         self.root.title("IFC Mapper")
         self.root.geometry("800x600")
         # self.root.resizable(width=False, height=True)
-        self.root.iconbitmap("dp.ico")
+        ico_file = pathlib.Path("dp.ico")
+        self.root.iconbitmap(ico_file)
 
         # Frame
         self.frame = tk.Frame(self.root)
@@ -52,7 +53,7 @@ class IfcMapper_GUI:
         self.label_file_text = tk.Label(self.frame, text="Datei:")
         self.label_file_text.grid(row=1, column=0, sticky="w", padx=5, pady=5)
 
-        self.label_file_path = tk.Label(self.frame, text=f"[{file_name}]")
+        self.label_file_path = tk.Label(self.frame, text=f"[{file_name}]", foreground="red")
         self.label_file_path.grid(row=1, column=1, sticky="w", padx=5, pady=5)
 
         self.button_file = tk.Button(
@@ -71,7 +72,7 @@ class IfcMapper_GUI:
 
         # Log text
         self.text_log = scrolledtext.ScrolledText(self.frame, wrap="word")
-        self.text_log.grid(row=3, column=0, columnspan=3, sticky="nsew", padx=5, pady=5)
+        self.text_log.grid(row=3, column=0, columnspan=3, sticky="nswe", padx=5, pady=5)
 
     def open_template(self) -> None:
         global path_template
@@ -182,8 +183,9 @@ def check_both_files_exists() -> bool:
 
 if __name__ == "__main__":
     # Load configuration
+    config_file = pathlib.Path("ifcMapper.ini")
     config = configparser.ConfigParser()
-    config.read("ifcMapper.ini")
+    config.read(config_file)
 
     # Set preferences
     path_template = pathlib.Path(config["Preferences"]["template"])
@@ -198,6 +200,7 @@ if __name__ == "__main__":
     DEBUG = config.getboolean("Debug", "debug")
 
     if DEBUG:
+        print(f"{pathlib.Path.cwd() = }")
         print(
             f"path_template {path_template} exists: {check_file_exists(path_template)}"
         )

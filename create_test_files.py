@@ -1,4 +1,5 @@
 import json
+import pathlib
 import shutil
 
 # Erstelle zwei Beispieldaten
@@ -63,9 +64,11 @@ daten_projekt = {
     ],
 }
 
+print(f"{pathlib.Path.cwd() = }")
+
 # Pfade für die JSON-Dateien festlegen
-pfad_zu_vorlage = "./testdata/datei_template.json"
-pfad_zu_projekt = "./testdata/datei_project.json"
+pfad_zu_vorlage = pathlib.Path("datei_template.json")
+pfad_zu_projekt = pathlib.Path("datei_project.json")
 
 # JSON-Dateien schreiben
 with open(pfad_zu_vorlage, "w", encoding="utf-8") as datei_a, open(
@@ -74,12 +77,13 @@ with open(pfad_zu_vorlage, "w", encoding="utf-8") as datei_a, open(
     json.dump(daten_vorlage, datei_a, ensure_ascii=False, indent=4)
     json.dump(daten_projekt, datei_b, ensure_ascii=False, indent=4)
 
-pfad_zu_vorlage, pfad_zu_projekt
-
 # Kopiere IfcInfraExportMapping.json
+file_copy_from = pathlib.Path("IfcInfraExportMapping_Testfile.json")
+file_copy_to = pathlib.Path("IfcInfraExportMapping.json")
+
 shutil.copyfile(
-    "./testdata/IfcInfraExportMapping_Testfile.json",
-    "./testdata/IfcInfraExportMapping.json",
+    file_copy_from,
+    file_copy_to,
 )
 
 print("Erledigt.")

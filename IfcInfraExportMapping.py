@@ -78,79 +78,72 @@ def mapping(file: dict, template: dict, categories: list) -> str:
     return output_str[:-1]
 
 
-if __name__ == "__main__":
-    DEBUG = False
+# if __name__ == "__main__":
+#     DEBUG = False
 
-    if DEBUG:
-        mapping_categories = (
-            "MapBlockName",
-            "MapCADLayerName",
-        )
+#     if DEBUG:
+#         mapping_categories = (
+#             "MapBlockName",
+#             "MapCADLayerName",
+#         )
 
-    else:
-        mapping_categories = (
-            "MapBlockName",
-            "MapCADLayerName",
-            "MapAlignmentStyleName",
-            "MapAssemblyStyleName",
-            "MapCorridorStyleName",
-            "MapFeatureLineStyleName",
-            "MapLinkStyleName",
-            "MapPipeStyleName",
-            "MapPointStyleName",
-            "MapPressureAppurtenanceStyleName",
-            "MapPressureFittingStyleName",
-            "MapPressurePipeStyleName",
-            "MapProfileStyleName",
-            "MapShapeStyleName",
-            "MapStructureStyleName",
-            "MapSurfaceStyleName",
-            "MapSubassemblyName",
-            "MapShapeCode",
-            "MapLinkCode",
-            "MapPointCode",
-            "MapFolderName",
-        )
+#     else:
+#         mapping_categories = (
+#             "MapBlockName",
+#             "MapCADLayerName",
+#             "MapAlignmentStyleName",
+#             "MapAssemblyStyleName",
+#             "MapCorridorStyleName",
+#             "MapFeatureLineStyleName",
+#             "MapLinkStyleName",
+#             "MapPipeStyleName",
+#             "MapPointStyleName",
+#             "MapPressureAppurtenanceStyleName",
+#             "MapPressureFittingStyleName",
+#             "MapPressurePipeStyleName",
+#             "MapProfileStyleName",
+#             "MapShapeStyleName",
+#             "MapStructureStyleName",
+#             "MapSurfaceStyleName",
+#             "MapSubassemblyName",
+#             "MapShapeCode",
+#             "MapLinkCode",
+#             "MapPointCode",
+#             "MapFolderName",
+#         )
 
-    # paths
-    path_template = "./testdata/IfcInfraExportMapping_Template.json"
-    path_project = "./testdata/IfcInfraExportMapping.json"
+#     # paths
+#     path_template = ".\testdata\IfcInfraExportMapping_Template.json"
+#     path_project = ".\testdata\IfcInfraExportMapping.json"
+# if DEBUG:
+#     path_template = ".\testdata\datei_template.json"
+#     path_project = ".\testdata\datei_project.json"
+# # intro
+# print(dp())
+# print("IfcInfraExportMapping . . .")
+# # 1) load json template and project file
+# template = open_json_file(path_template)
+# project_file = open_json_file(path_project)
+# # 2) map files
+# log_str = mapping(project_file, template, mapping_categories)
+# print(log_str)
+# # 3) save project file
+# save_json_file(path_project, project_file)
+# # outro
+# print("Erledigt.")
 
-    if DEBUG:
-        path_template = "./testdata/datei_template.json"
-        path_project = "./testdata/datei_project.json"
-
-    # intro
-    print(dp())
-    print("IfcInfraExportMapping . . .")
-
-    # 1) load json template and project file
-    template = open_json_file(path_template)
-    project_file = open_json_file(path_project)
-
-    # 2) map files
-    log_str = mapping(project_file, template, mapping_categories)
-    print(log_str)
-
-    # 3) save project file
-    save_json_file(path_project, project_file)
-
-    # outro
-    print("Erledigt.")
-
-"""
-Debug output:
-
-[…]
-MapCADLayerName
-.."0" wurde abgeglichen
-.."DO_1" wurde abgeglichen
-.."DO_2" wurde abgeglichen
-.."DO_4" wurde abgeglichen
-.."DO_5" bleibt unverändert
-.."DO_6" wurde abgeglichen
-.."DO_7" wurde abgeglichen
-.."DO_3" neu hinzugefügt
-.."DO_8" neu hinzugefügt
-[…]
-"""
+# """
+# Debug output:
+# […]
+# MapCADLayerName
+# .."0" wurde abgeglichen
+# .."DO_1" wurde abgeglichen
+# .."DO_2" wurde abgeglichen
+# .."DO_4" wurde abgeglichen
+# .."DO_5" bleibt unverändert
+# .."DO_6" wurde abgeglichen
+# .."DO_7" wurde abgeglichen
+# .."DO_3" neu hinzugefügt
+# .."DO_8" neu hinzugefügt
+# […]
+# """
