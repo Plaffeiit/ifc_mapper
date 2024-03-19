@@ -21,16 +21,17 @@ class IfcMapper_GUI:
 
         # Frame
         self.frame = tk.Frame(self.root)
-        self.frame.grid_rowconfigure(0, weight=1)
-        self.frame.grid_rowconfigure(1, weight=1)
-        self.frame.grid_rowconfigure(2, weight=1)
-        self.frame.grid_rowconfigure(3, weight=2)
-        self.frame.grid_columnconfigure(0, weight=1)
-        self.frame.grid_columnconfigure(1, weight=3)
-        self.frame.grid_columnconfigure(2, weight=2)
+        self.frame.grid_rowconfigure(0, weight=0)
+        self.frame.grid_rowconfigure(1, weight=0)
+        self.frame.grid_rowconfigure(2, weight=0)
+        self.frame.grid_rowconfigure(3, weight=1)
+        self.frame.grid_columnconfigure(0, weight=0)
+        self.frame.grid_columnconfigure(1, weight=1)
+        self.frame.grid_columnconfigure(2, weight=0)
         self.frame.grid_configure(row=0, column=0, sticky="nsew")
         self.frame.pack(
             fill="both",
+            expand=True,
             padx=5,
             pady=5,
         )
@@ -53,7 +54,9 @@ class IfcMapper_GUI:
         self.label_file_text = tk.Label(self.frame, text="Datei:")
         self.label_file_text.grid(row=1, column=0, sticky="w", padx=5, pady=5)
 
-        self.label_file_path = tk.Label(self.frame, text=f"[{file_name}]", foreground="red")
+        self.label_file_path = tk.Label(
+            self.frame, text=f"[{file_name}]", foreground="red"
+        )
         self.label_file_path.grid(row=1, column=1, sticky="w", padx=5, pady=5)
 
         self.button_file = tk.Button(
